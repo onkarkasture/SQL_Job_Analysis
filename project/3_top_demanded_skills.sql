@@ -13,3 +13,28 @@ WHERE job_title_short = 'Data Analyst'
 GROUP BY skills
 ORDER BY number_of_jobs DESC
 LIMIT 5
+
+/* Results
+[
+  {
+    "skills": "sql",
+    "number_of_jobs": "92628"
+  },
+  {
+    "skills": "excel",
+    "number_of_jobs": "67031"
+  },
+  {
+    "skills": "python",
+    "number_of_jobs": "57326"
+  },
+  {
+    "skills": "tableau",
+    "number_of_jobs": "46554"
+  },
+  {
+    "skills": "power bi",
+    "number_of_jobs": "39468"
+  }
+]
+*/
