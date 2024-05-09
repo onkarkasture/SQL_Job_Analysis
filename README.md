@@ -54,7 +54,7 @@ No significant patterns in terms of job posting dates are discernible from the p
 
 Some job postings are specialized in certain domains like healthcare (e.g., "Technical Data Architect - Healthcare"), suggesting the importance of domain knowledge in addition to technical skills in certain roles.
 
-![alt text](/assets/image-3.png)
+![alt text](/assets/image1.png)
 
 ### **Question 2:** What are the top-paying job skills?
 
@@ -83,7 +83,7 @@ Other frequently mentioned skills include Python, AWS, Azure, Excel, Spark, Hado
 Different companies might have specific requirements for skills, such as Srijan Technologies looking for expertise in Scala, Shell scripting, Databricks, etc., whereas Bosch Group emphasizes skills like SAP, MongoDB, PostgreSQL, etc.   
 Skills like Snowflake, Kafka, Gitlab, etc., are also mentioned, although less frequently, suggesting niche requirements in some job roles. 
 
-![alt text](/assets/image-1.png)
+![alt text](/assets/image2.png)
 
 ### **Question 3:** What the most in-demand skills based on number of job postings?
 
@@ -92,7 +92,7 @@ SELECT skills, COUNT(job_postings_fact.job_id) AS number_of_jobs
 FROM job_postings_fact
 LEFT JOIN skills_job_dim ON job_postings_fact.job_id=skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id=skills_dim.skill_id
-WHERE job_title_short = 'Data Analyst'
+WHERE job_title_short = 'Data Analyst' AND job_location LIKE '%India'
 GROUP BY skills
 ORDER BY number_of_jobs DESC
 LIMIT 5;
@@ -106,7 +106,7 @@ Microsoft Office Skills: Both Excel and Power BI, which are part of the Microsof
 
 **Industry Standard:** Skills like SQL and Excel are considered industry standards in data-related roles, often being prerequisites for many positions. Proficiency in these tools is essential for data handling, querying, and analysis tasks.
 
-![alt text](/assets/image-2.png)
+![alt text](/assets/image3.png)
 
 ### **Question 4:** Which skills are associated with high salaries?
 
