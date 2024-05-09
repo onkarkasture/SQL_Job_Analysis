@@ -1,6 +1,6 @@
 # Introduction
 Welcome to the SQL Job Analysis Project!    
-In this repository, you'll find the methodology, SQL queries and their correspondig results analyzed for insights into the job market, specifically pertaining to India and Data Analyst Roles.
+In this repository, you'll find the methodology, SQL queries and their corresponding results analyzed for insights into the job market, specifically pertaining to India and Data Analyst Roles.
 # Background
 The purpose of this project is to explore a dataset using SQL queries to derive meaningful insights. By querying the database, I aim to uncover the trends, patterns, distributions and relationships within the dataset.
 
