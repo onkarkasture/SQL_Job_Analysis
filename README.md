@@ -1,6 +1,6 @@
 # Introduction
 Welcome to the SQL Job Analysis Project!    
-In this repository, you'll find the methodology, SQL queries and their corresponding results analyzed for insights into the job market, specifically pertaining to India and Data Analyst Roles.
+In this repository, you'll find the methodology, SQL queries and their corresponding results analyzed for insights into the job market, specifically pertaining to India (unless specified otherwise) and Data Analyst Roles.
 # Background
 The purpose of this project is to explore a dataset using SQL queries to derive meaningful insights. By querying the database, I aim to uncover the trends, patterns, distributions and relationships within the dataset.
 
@@ -11,7 +11,7 @@ Want to take a look at the queries and SQL code? Here's a link: **[project folde
 - **ChatGPT:** It is a Large Language Model **(LLM)** used to reduce repetitive and menial tasks to fastrack the progress.
 - **Excel:** A very versatile tool for data management. Was used to give better structure to the dataset as well as to draw conclusions using the results.
 # The Analysis
-The Analysis is divided into 5 questions so as to make it more readable.    
+The Analysis is divided into few questions so as to make it more readable.    
 Note: All salary values are in **Dollars ($)**
 
 ### **Question 1:** What are the top 10 Data Analyst Jobs in India based on Yearly Salary?
@@ -92,7 +92,7 @@ SELECT skills, COUNT(job_postings_fact.job_id) AS number_of_jobs
 FROM job_postings_fact
 LEFT JOIN skills_job_dim ON job_postings_fact.job_id=skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id=skills_dim.skill_id
-WHERE job_title_short = 'Data Analyst' AND job_location LIKE '%India'
+WHERE job_title_short = 'Data Analyst' AND job_location LIKE '%India%'
 GROUP BY skills
 ORDER BY number_of_jobs DESC
 LIMIT 5;
@@ -108,7 +108,7 @@ Microsoft Office Skills: Both Excel and Power BI, which are part of the Microsof
 
 ![alt text](/assets/image3.png)
 
-### **Question 4:** Which skills are associated with high salaries?
+### **Question 4:** Which skills are associated with high salaries? (Globally)
 
 ```sql
 SELECT skills, ROUND(AVG(salary_year_avg),0) AS average_annual_salary
@@ -116,7 +116,7 @@ FROM job_postings_fact
 LEFT JOIN skills_job_dim ON job_postings_fact.job_id=skills_job_dim.job_id
 LEFT JOIN skills_dim ON skills_job_dim.skill_id=skills_dim.skill_id
 WHERE job_title_short = 'Data Analyst' AND
-    salary_year_avg IS NOT NULL
+    salary_year_avg IS NOT NULL AND job_location LIKE '%India'
 GROUP BY skills
 ORDER BY average_annual_salary DESC
 LIMIT 10;
@@ -155,7 +155,7 @@ WITH top_paying_skills AS (
     LEFT JOIN skills_job_dim ON job_postings_fact.job_id=skills_job_dim.job_id
     LEFT JOIN skills_dim ON skills_job_dim.skill_id=skills_dim.skill_id
     WHERE job_title_short = 'Data Analyst' AND
-        salary_year_avg IS NOT NULL AND job_location LIKE '%India'
+        salary_year_avg IS NOT NULL AND job_location LIKE '%India%'
     GROUP BY skills
 ), top_demanded_skills AS (
     SELECT skills, COUNT(job_postings_fact.job_id) AS number_of_jobs
@@ -197,6 +197,43 @@ LIMIT 25;
 | word        | 10             | 83266                 |
 | mongodb     | 6              | 135994                |
 
+### **Question 6:** What are the top 10 job searching sites based on job openings data?
+
+```sql
+SELECT job_via AS Website_Name, 
+    AVG(salary_year_avg)::INT AS Average_Salary, 
+    COUNT(job_id)::INT AS Number_of_Jobs
+FROM job_postings_fact
+WHERE job_location LIKE '%India%'
+GROUP BY Website_Name 
+HAVING 
+    AVG(salary_year_avg) IS NOT NULL 
+    AND 
+    COUNT(job_id) IS NOT NULL
+ORDER BY Number_of_Jobs DESC, average_salary DESC
+LIMIT 10;
+```
+| Website Name                        | Average Salary | Number of Jobs |
+|------------------------------------|----------------|----------------|
+| LinkedIn                       | 83752          | 18480          |
+| Indeed                         | 77932          | 4444           |
+| Ai-Jobs.net                    | 113113         | 581            |
+| Jooble                         | 64600          | 293            |
+| BeBee                          | 71250          | 191            |
+| ZipRecruiter                   | 86663          | 90             |
+| Wellfound                      | 140000         | 79             |
+| Dice                           | 86111          | 50             |
+| Talent.com                     | 100150         | 38             |
+| Ladders                        | 105782         | 19             |
+
+#### **Insights:**
+- **Salary Range:** The average salaries vary significantly across different websites, ranging from $50,000 to $140,000. This suggests that the platform through which a job is sought can significantly impact the potential salary.  
+- **Job Distribution:** The number of jobs posted also varies widely. LinkedIn has the highest number of job postings, followed by Indeed and Ai-Jobs.net. This indicates that these platforms are popular among both job seekers and recruiters.  
+- **High-Paying Platforms:** Websites like Wellfound, Infosec-Jobs.com, and Professional Diversity Network offer relatively high average salaries, indicating that they might specialize in niche or high-demand fields.  
+
+- **Competition vs. Pay:** There seems to be a correlation between the number of jobs and the average salary on each platform. Platforms with higher average salaries tend to have fewer job postings, indicating potentially higher competition for those roles. Conversely, platforms with lower average salaries tend to have more job postings, suggesting a larger pool of opportunities but possibly at lower compensation levels.
+
+
 # What I learned
 This project shed light on how different tools, especially **SQL**, play crucial roles in understanding a particular dataset. SQL's simplicity and adaptability allowed for precise data extraction, making it easier to spot trends and connections within the dataset.    
 **PostgreSQL** served as a sturdy foundation, ensuring the dataset remained organized and reliable throughout the analysis.  
@@ -211,6 +248,7 @@ In essence, this project highlighted the value of using a blend of tools like SQ
 3. **Most In-Demand Skills:** SQL is also the most demanded skill in the data analyst job market, thus making it essential for job seekers.  
 4. **Skills with Higher Salaries:** Specialized skills, such as SVN and Solidity, are associated with the highest average salaries, indicating a premium on niche expertise.  
 5. **Optimal Skills for Job Market Value:** SQL leads in demand and offers for a high average salary, positioning it as one of the most optimal skills for data analysts to learn to maximize their market value.
+6. **Top Websites for Job Searching:** LinkedIn seems to be topping the chart by a huge margin indicating it is the choice of platform for many recruiters. Indeed and Ai-jobs are also viable options, the former offering one of the highest average salaries.
 
 # Closing Thoughts
 This project enhanced my SQL skills and provided valuable insights into the data analyst job market. The findings from the analysis serve as a guide to prioritizing skill development and job search efforts. Aspiring data analysts can better position themselves in a competitive job market by focusing on high-demand, high-salary skills. This exploration highlights the importance of continuous learning and adaptation to emerging trends in the field of data analytics.
