@@ -252,3 +252,6 @@ In essence, this project highlighted the value of using a blend of tools like SQ
 
 # Closing Thoughts
 This project enhanced my SQL skills and provided valuable insights into the data analyst job market. The findings from the analysis serve as a guide to prioritizing skill development and job search efforts. Aspiring data analysts can better position themselves in a competitive job market by focusing on high-demand, high-salary skills. This exploration highlights the importance of continuous learning and adaptation to emerging trends in the field of data analytics.
+
+
+Note: The numbers might be a little different depending upon whether you use '%India' or '%India%', I was trying to go for the most credible looking job postings so India at the end seems to be a more credible filter.
