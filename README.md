@@ -246,31 +246,18 @@ LIMIT 10;
 
 
 
-| Skill     | Average Annual Salary ($) |
-
+| Skill     | Average Annual Salary ($) |
 |-----------|----------------------------|
-
-| SVN       | 400,000                   |
-
-| Solidity  | 179,000                   |
-
-| Couchbase | 160,515                   |
-
-| DataRobot | 155,486                   |
-
-| Golang    | 155,000                   |
-
-| MXNet     | 149,000                   |
-
-| dplyr     | 147,633                   |
-
-| VMware    | 147,500                   |
-
-| Terraform | 146,734                   |
-
-| Twilio    | 138,500                   |
-
-
+| SVN       | 400,000                    |
+| Solidity  | 179,000                    |
+| Couchbase | 160,515                    |
+| DataRobot | 155,486                    |
+| Golang    | 155,000                    |
+| MXNet     | 149,000                    |
+| dplyr     | 147,633                    |
+| VMware    | 147,500                    |
+| Terraform | 146,734                    |
+| Twilio    | 138,500                    |
 
 
 
@@ -362,37 +349,23 @@ LIMIT 25;
 
 
 
-| Skills      | Number of Jobs | Average Annual Salary |
-
+| Skills      | Number of Jobs | Average Annual Salary |
 |-------------|----------------|-----------------------|
+| sql         | 46             | 92984                 |
+| excel       | 39             | 88519                 |
+| python      | 36             | 95933                 |
+| tableau     | 20             | 95103                 |
+| R           | 18             | 86609                 |
+| power bi    | 17             | 109832                |
+| azure       | 15             | 98570                 |
+| aws         | 12             | 95333                 |
+| spark       | 11             | 118332                |
+| oracle      | 11             | 104260                |
+| powerpoint  | 10             | 102678                |
+| looker      | 10             | 98815                 |
+| word        | 10             | 83266                 |
+| mongodb     | 6              | 135994                |
 
-| sql         | 46             | 92984                 |
-
-| excel       | 39             | 88519                 |
-
-| python      | 36             | 95933                 |
-
-| tableau     | 20             | 95103                 |
-
-| R           | 18             | 86609                 |
-
-| power bi    | 17             | 109832                |
-
-| azure       | 15             | 98570                 |
-
-| aws         | 12             | 95333                 |
-
-| spark       | 11             | 118332                |
-
-| oracle      | 11             | 104260                |
-
-| powerpoint  | 10             | 102678                |
-
-| looker      | 10             | 98815                 |
-
-| word        | 10             | 83266                 |
-
-| mongodb     | 6              | 135994                |
 
 
 
@@ -428,29 +401,19 @@ LIMIT 10;
 
 ```
 
-| Website Name                        | Average Salary | Number of Jobs |
+| Website Name     | Average Salary | Number of Jobs |
+|------------------|----------------|----------------|
+| LinkedIn         | 83752          | 18480          |
+| Indeed           | 77932          | 4444           |
+| Ai-Jobs.net      | 113113         | 581            |
+| Jooble           | 64600          | 293            |
+| BeBee            | 71250          | 191            |
+| ZipRecruiter     | 86663          | 90             |
+| Wellfound        | 140000         | 79             |
+| Dice             | 86111          | 50             |
+| Talent.com       | 100150         | 38             |
+| Ladders          | 105782         | 19             |
 
-|------------------------------------|----------------|----------------|
-
-| LinkedIn                       | 83752          | 18480          |
-
-| Indeed                         | 77932          | 4444           |
-
-| Ai-Jobs.net                    | 113113         | 581            |
-
-| Jooble                         | 64600          | 293            |
-
-| BeBee                          | 71250          | 191            |
-
-| ZipRecruiter                   | 86663          | 90             |
-
-| Wellfound                      | 140000         | 79             |
-
-| Dice                           | 86111          | 50             |
-
-| Talent.com                     | 100150         | 38             |
-
-| Ladders                        | 105782         | 19             |
 
 
 
